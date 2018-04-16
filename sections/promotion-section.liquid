@@ -1,0 +1,48 @@
+<div class="promotion-section">
+    <div class="promotion-block">
+      <div class="div-block-2">
+        <div class="promo-text-block">
+          <div class="text-block-2">{{ section.settings.first-line }}</div>
+          <h1 class="heading">{{ section.settings.second-line }}<br>{{ section.settings.third-line }}</h1>
+          <a href="#" class="promo-button w-button">SHOP NOW</a></div>
+      </div>
+      <div class="div-block-3">
+        <a href="#" class="link-block w-inline-block">
+          <img src="{{ section.settings.promo-image | img_url: '1500x1000' }}" width="800" 
+              alt="Maternity Clothes" srcset="{{ section.settings.promo-image | img_url: '1500x1000' }} 1080w, {{ section.settings.promo-image | img_url: '1500x1000' }} 1600w, {{ section.settings.promo-image | img_url: '1500x1000' }} 2000w, {{ section.settings.promo-image | img_url: '1500x1000' }} 2600w, {{ section.settings.promo-image | img_url: '1500x1000' }} 3200w, {{ section.settings.promo-image | img_url: '1500x1000' }} 3500w" sizes="(max-width: 479px) 100vw, 50vw">
+        </a>
+      </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Promotion Section",
+  "settings": [
+    {
+      "id": "first-line",
+      "type": "text",
+      "label": "1st line",
+      "default": "This sale is Bumpin'"
+    },
+    {
+      "id": "second-line",
+      "type": "text",
+      "label": "2nd line",
+      "default": "Some of our favorites"
+    },
+    {
+      "id": "third-line",
+      "type": "text",
+      "label": "3rd line",
+      "default": "up to 40% off"
+    },
+    {
+      "id": "promo-image",
+      "type": "image_picker",
+      "label": "Promotion Image (1500x1000 recommended)"
+    }
+
+  ]
+}
+{% endschema %}

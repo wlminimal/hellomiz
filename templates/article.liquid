@@ -1,0 +1,53 @@
+<div class="blog-detail-section">
+    <div class="container-2 w-container">
+      <div class="blog-hero-image-wrapper">
+        {% if article.image %}
+          {{ article | img_url: '1024x1024' | img_tag: article.title }}
+        {% endif %}
+      </div>
+      <div class="blog-content-flexbox">
+        <div class="blog-content-block">
+          <h1 class="blog-content-header">
+          {{ article.title }}
+          </h1>
+          <div class="blog-divider"></div>
+          <div class="blog-content">
+           <div class="paragraph-2">
+            {{ article.content }}
+           </div>
+          </div>
+        </div>
+        <div class="blog-content-share-block">
+          <div class="share-block">
+            <div class="share-text">share post</div>
+            <div class="div-block-35">
+            <a target="_blank" href="//www.facebook.com/sharer.php?u={{ shop.url }}{% if template contains 'blog' or template == 'article' %}{{ article.url }}{% else %}{{ product.url }}{% endif %}">
+              <img src="{{ 'facebook.png' | asset_img_url: '32x' }}" class="image-7">
+             
+            </a>
+            <a target="_blank" href="//twitter.com/home?status={{ shop.url }}{% if template contains 'blog' or template == 'article' %}{{ article.url }}{% else %}{{ product.url }}{% endif %} via @{{ settings.twittername }}">
+              <img src="{{ 'twitter.png' | asset_img_url: '32x' }}" class="image-7">
+              
+            </a>
+            <a target="_blank" href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | img_url: '1024x1024' }}&amp;description={{ share_title | url_param_escape }}">
+              <img src="{{ 'pinterest-new.png' | asset_img_url: '32x' }}" class="image-7"></div>
+              
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="related-blog-flexbox">
+      {% for article in blogs.story.articles limit: 3 %}
+        <div class="related-blog-flexitem">
+        <img src="{{ article.image.src | img_url: '260x260' }}" width="260" 
+        srcset="{{ article.image.src | img_url: '260x260' }} 1080w, {{ article.image.src | img_url: '260x260' }} 1600w, {{ article.image.src | img_url: '260x260' }} 2000w, {{ article.image.src | img_url: '260x260' }} 2400w" sizes="260px">
+          <div class="div-block-36">
+            <a href="{{ article.url }}" class="related-blog-link">
+              <div class="text-block-14">{{ article.title}}</div>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>

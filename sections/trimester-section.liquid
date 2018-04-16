@@ -1,0 +1,104 @@
+<div class="trimester-section">
+    <div class="trimester-flexbox">
+      <div class="div-block-18">
+        <div class="div-block-12">
+          <div class="text-block-3">{{ section.settings.trimester-first-line }}</div>
+          <h2 class="heading-3">{{ section.settings.trimester-second-line }}</h2>
+          <div class="text-block-4">{{ section.settings.trimester-third-line }}</div>
+          <div class="text-block-4">{{ section.settings.trimester-fourth-line}}</div>
+        </div>
+      </div>
+      <div class="trimester-menu-flexbox">
+        <div class="div-block-32">
+          <div data-w-id="92e8c3e0-dab3-1b34-1a45-f3ac1b813d40" class="div-block-31">
+            <div class="trimester-text">{{ section.settings.trimester-circle-1 }}</div><a href="{{ section.settings.trimester-circle-1-link }}" class="shop-now-button">shop now</a></div>
+          <div data-w-id="5b26e327-5a12-6aa6-808d-aec1bdce3c72" class="div-block-31">
+            <div class="trimester-text">{{ section.settings.trimester-circle-2}}</div><a href="{{ section.settings.trimester-circle-2-link }}" class="shop-now-button">shop now</a></div>
+          <div data-w-id="e3b67131-0874-e83c-f915-e1b0efba7038" class="div-block-31">
+            <div class="trimester-text">{{ section.settings.trimester-circle-3}}</div><a href="{{ section.settings.trimester-circle-3-link }}" class="shop-now-button">shop now</a></div>
+          <div data-w-id="2e289daf-6dcd-439e-0e20-65379f5b2c90" class="div-block-31">
+            <div class="trimester-text">{{ section.settings.trimester-circle-4 }}</div><a href="{{ section.settings.trimester-circle-4-link }}" class="shop-now-button">shop now</a></div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Trimester Section",
+  "settings": [
+    {
+      "id": "trimester-first-line",
+      "type": "text",
+      "label": "First Line",
+      "default": "Find your fit"
+    },
+    {
+      "id": "trimester-second-line",
+      "type": "text",
+      "label": "Second Line",
+      "default": "The trimester edits"
+    },
+    {
+      "id": "trimester-third-line",
+      "type": "text",
+      "label": "Third Line",
+      "default": "Every trimester solved"
+    },
+    {
+      "id": "trimester-fourth-line",
+      "type": "text",
+      "label": "Fourth Line",
+      "default": "from kidney bean to coconut"
+    },
+    {
+      "id": "trimester-circle-1",
+      "type": "text",
+      "label": "Circle 1",
+      "default": "not pregnant"
+    },
+    {
+      "id": "trimester-circle-1-link",
+      "type": "text",
+      "label": "Circle 1 Link(/collections/(collection_name)",
+      "default": "/collections/women"
+    },
+    {
+      "id": "trimester-circle-2",
+      "type": "text",
+      "label": "Circle 2",
+      "default": "0-3 months"
+    },
+    {
+      "id": "trimester-circle-2-link",
+      "type": "text",
+      "label": "Circle 2 Link(/collections/(collection_name)",
+      "default": "/collections/maternity-featured-1st-trimester"
+    },
+    {
+      "id": "trimester-circle-3",
+      "type": "text",
+      "label": "Circle 3",
+      "default": "3-6 months"
+    },
+    {
+      "id": "trimester-circle-3-link",
+      "type": "text",
+      "label": "Circle 3 Link(/collections/(collection_name)",
+      "default": "/collections/maternity-featured-2nd-trimester"
+    },
+    {
+      "id": "trimester-circle-4",
+      "type": "text",
+      "label": "Circle 4",
+      "default": "6-9 months"
+    },
+    {
+      "id": "trimester-circle-4-link",
+      "type": "text",
+      "label": "Circle 4 Link(/collections/(collection_name)",
+      "default": "/collections/maternity-featured-3rd-trimester"
+    }
+  ]
+}
+{% endschema %}

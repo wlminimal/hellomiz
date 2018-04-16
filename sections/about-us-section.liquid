@@ -1,0 +1,174 @@
+  <div class="aboutus-hero-section">
+    <div class="aboutus-hero-block">
+      <div class="aboutus-text-block">
+        <h1 class="aboutus-heading">
+        <span class="text-span-5">{{ section.settings.header-first-letter}}</span>{{ section.settings.header-first-line}}<br> {{ section.settings.header-second-line }}</h1>
+      </div>
+    </div>
+  </div>
+  <div class="aboutus-main-section">
+    <div class="abousus-flexbox-1">
+      <div class="aboutus-image-1-block">
+        <img src="{{ section.settings.first-block-image | img_url: '380x569' }}" class="image-9">
+      </div>
+      <div class="div-block-44">
+        <div class="text-block-21">
+        <span class="text-span-6">{{ section.settings.first-block-first-letter}}</span>{{ section.settings.first-block-first-line}}</div>
+        <p class="paragraph-3">{{ section.settings.first-block-description }}</p>
+      </div>
+    </div>
+    <div class="aboutus-flexbox-2">
+      <div class="div-block-45">
+        <div class="text-block-22">
+        <span class="text-span-7">{{ section.settings.second-block-first-letter}}</span>{{ section.settings.second-block-first-line }}</div>
+        <p class="paragraph-3">{{ section.settings.second-block-description }}</p>
+      </div>
+      <div>
+        <img src="{{ section.settings.second-block-image | img_url: '450x674'}}" width="450" 
+        srcset="{{ section.settings.second-block-image | img_url: '450x674'}} 500w, {{ section.settings.second-block-image | img_url: '450x674'}} 800w, {{ section.settings.second-block-image | img_url: '450x674'}} 900w" sizes="(max-width: 479px) 70vw, (max-width: 767px) 38vw, (max-width: 991px) 40vw, 39vw">
+      </div>
+    </div>
+    <div class="aboutus-flexbox-3">
+      <div>
+        <img src="{{ section.settings.third-block-image | img_url: '450x528' }}" width="450" 
+        srcset="{{ section.settings.third-block-image | img_url: '450x528' }} 500w, {{ section.settings.third-block-image | img_url: '450x528' }} 800w, {{ section.settings.third-block-image | img_url: '450x528' }} 1080w, {{ section.settings.third-block-image | img_url: '450x528' }} 1600w, {{ section.settings.third-block-image | img_url: '450x528' }} 2000w, {{ section.settings.third-block-image | img_url: '450x528' }} 2278w" sizes="(max-width: 479px) 70vw, (max-width: 991px) 40vw, 39vw">
+      </div>
+      <div class="div-block-46">
+        <div class="text-block-22">
+          <span class="text-span-7">{{ section.settings.third-block-first-letter }}</span>{{ section.settings.third-block-first-line }}
+        </div>
+        <p class="paragraph-3">{{ section.settings.third-block-description }}</p>
+      </div>
+    </div>
+    <div class="aboutus-flexbox-4">
+      <div class="div-block-47">
+        <div class="text-block-22">
+          <span class="text-span-7">{{ section.settings.fourth-block-first-letter }}</span>{{ section.settings.fourth-block-first-line }}
+        </div>
+        <p class="paragraph-3">{{ section.settings.fourth-block-description }}</p>
+      </div>
+      
+      <div>
+        <img src="{{ section.settings.fourth-block-image | img_url: '450x675' }}" width="450" 
+        srcset="{{ section.settings.fourth-block-image | img_url: '450x675' }} 500w, {{ section.settings.fourth-block-image | img_url: '450x675' }} 800w, {{ section.settings.fourth-block-image | img_url: '450x675' }} 1080w, {{ section.settings.fourth-block-image | img_url: '450x675' }} 1600w, {{ section.settings.fourth-block-image | img_url: '450x675' }} 2000w, {{ section.settings.fourth-block-image | img_url: '450x675' }} 2600w, {{ section.settings.fourth-block-image | img_url: '450x675' }} 2670w" sizes="(max-width: 479px) 70vw, (max-width: 767px) 39vw, (max-width: 991px) 40vw, 39vw">
+      </div>
+    </div>
+  </div>
+
+{% schema %}
+{
+  "name": "About Us Section",
+  "settings": [
+    {
+      "id": "header-first-letter",
+      "type": "text",
+      "label": "Header First Letter",
+      "default": "W"
+    },
+    {
+      "id": "header-first-line",
+      "type": "text",
+      "label": "Header First Line",
+      "default": "e're all about the"
+    },
+    {
+      "id": "header-second-line",
+      "type": "text",
+      "label": "Header Second Line",
+      "default": "mamas of the world."
+    },
+    {
+      "id": "first-block-image",
+      "type": "image_picker",
+      "label": "First Block Image(380x570 Recommended)"
+    },
+    {
+      "id": "first-block-first-letter",
+      "type": "text",
+      "label": "First block first letter",
+      "default": "W"
+    },
+    {
+      "id": "first-block-first-line",
+      "type": "text",
+      "label": "First block first line",
+      "default": "ELCOME TO HELLOMIZ.COM"
+    },
+    {
+      "id": "first-block-description",
+      "type": "text",
+      "label": "First block description",
+      "default": "Description about this block"
+    },
+    {
+      "id": "second-block-first-letter",
+      "type": "text",
+      "label": "Second block first letter",
+      "default": "O"
+    },
+    {
+      "id": "second-block-first-line",
+      "type": "text",
+      "label": "Second block first line",
+      "default": "utstanding Quality"
+    },
+    {
+      "id": "second-block-description",
+      "type": "text",
+      "label": "Second block description",
+      "default": "Description about this block"
+    },
+    {
+      "id": "second-block-image",
+      "type": "image_picker",
+      "label": "Second Block Image(450x674 Recommended)"
+    },
+    {
+      "id": "third-block-first-letter",
+      "type": "text",
+      "label": "Third block first letter",
+      "default": "V"
+    },
+    {
+      "id": "third-block-first-line",
+      "type": "text",
+      "label": "Third block first line",
+      "default": "arious Product"
+    },
+    {
+      "id": "third-block-description",
+      "type": "text",
+      "label": "Third block description",
+      "default": "Description about this block"
+    },
+    {
+      "id": "third-block-image",
+      "type": "image_picker",
+      "label": "Third Block Image(450x528 Recommended)"
+    },
+    {
+      "id": "fourth-block-first-letter",
+      "type": "text",
+      "label": "Fourth block first letter",
+      "default": "U"
+    },
+    {
+      "id": "fourth-block-first-line",
+      "type": "text",
+      "label": "Fourth block first line",
+      "default": "niqueness"
+    },
+    {
+      "id": "fourth-block-description",
+      "type": "text",
+      "label": "Fourth block description",
+      "default": "Description about this block"
+    },
+    {
+      "id": "fourth-block-image",
+      "type": "image_picker",
+      "label": "Fourth Block Image(450x675 Recommended)"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,24 @@
+<nav class="pagination is-rounded is-small" role="navigation" aria-label="pagination">
+
+{% if paginate.previous.is_link %}
+  <a class="pagination-previous" href="{{ paginate.previous.url }}">Prev</a>
+{% endif %}
+
+{% if paginate.next.is_link %}
+  <a class="pagination-next" href="{{ paginate.next.url }}">Next</a>
+{% endif %}
+
+  <ul class="pagination-list">
+  {% for part in paginate.parts %}
+    {% if part.is_link %}
+      <li><a class="pagination-link" aria-label="Goto page {{ part.title }}" href="{{ part.url }}">{{ part.title }}</a></li>
+    {% else %}
+      {% if part.title == '&hellip;' %}
+        {{ part.title }}
+      {% else %}
+        <li><a class="pagination-link is-current" href="#">{{ part.title }}</a></li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  </ul>
+</nav>

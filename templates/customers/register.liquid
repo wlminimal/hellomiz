@@ -1,0 +1,65 @@
+<div class="signup-section">
+    <div class="form-block-wrapper">
+      <h1 class="heading-5">Create an account</h1>
+      <div class="form-divider"></div>
+      <div class="text-block-32">Your account will be used to login to our shop, so Please Enter your information carefully</div>
+      <div class="form-block-3 w-form">
+        {% form 'create_customer' %}
+          <div class="register-form-flexbox">
+            <div class="div-block-59">
+              <label for="FirstName" class="field-label-2">* First Name:</label>
+              <input type="text" 
+                    class="w-input" 
+                    maxlength="256" 
+                    name="customer[first_name]" 
+                    id="FirstName" 
+                    required="">
+            </div>
+            <div class="div-block-60">
+              <label for="LastName" class="field-label-2">* Last Name:</label>
+              <input type="text"
+                    class="w-input" 
+                    maxlength="256" 
+                    name="customer[last_name]"
+                    id="LastName" 
+                    required="">
+            </div>
+          </div>
+          <div class="register-form-flexbox">
+            <div class="div-block-59">
+              <label for="Email" class="field-label-2">* Email Address:</label>
+              <input type="email"
+                     class="w-input {% if form.errors contains 'email' %}input-error{% endif %}" 
+                     maxlength="256" 
+                     name="customer[email]"
+                     id="Email" 
+                     required="">
+            </div>   
+            <div class="div-block-60">
+              <label for="PhoneNumber" class="field-label-2">* Phone:</label>
+              <input type="text"
+                    class="w-input" 
+                    maxlength="256" 
+                    name="customer[phone_number]"
+                    id="PhoneNumber" 
+                    required="">
+            </div>
+          </div>
+          <div class="register-form-flexbox">
+            <div class="div-block-59 password">
+              <label for="CreatePassword" class="field-label-2">* Password:</label>
+              <input type="password"
+                     class="w-input {% if form.errors contains 'password' %}input-error{% endif %}" 
+                     maxlength="256" 
+                     name="customer[password]" 
+                     id="CreatePassword" 
+                     required="">
+            </div>
+          </div>
+          <div class="form-button-wrapper">
+            <input type="submit" value="Create an account" class="form-submit-button w-button">
+          </div>
+        {% endform %}
+      </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div id="side-cart" class="cart-block" data-cart-view="data-cart-view">
+    <div class="close-block">
+      <a  href="#" class="close-button">X</a>
+    </div>
+    
+    <div rv-each-item="cart.items" rv-id="item.variant_id" class="cart-item-flexbox">
+      <div class="cart-img-block">
+        
+        <a rv-hide="item.image | empty" rv-href=item.url>
+          <img rv-src=item.image rv-tag=item.title width="240" rv-alt=item.title>
+        </a>
+     
+      </div>
+      <div class="cart-product-detail-flexbox" data-label="{{ 'customer.order.product' }}">
+        <div class="w-row">
+          <div class="w-col w-col-11 w-col-small-small-stack">
+            <div class="cart-product-title">
+              <a rv-text="item.product_title" rv-href=item.url class="cart-link"></a>
+            </div>
+          </div>
+          <div class="w-col w-col-1 w-col-small-small-stack"></div>
+        </div>
+        <div class="cart-row w-row">
+          <div class="w-col w-col-6 w-col-medium-6 w-col-small-6 w-col-tiny-6">
+        
+            <div rv-unless="item.product.has_only_default_variant" rv-text="item.variant_title" class="text-block-25"></div>
+          
+          </div>
+          <div class="w-col w-col-6 w-col-medium-6 w-col-small-6 w-col-tiny-6">
+            <div class="text-block-25"></div>
+          </div>
+        </div>
+       
+        <div class="cart-row w-row">
+          <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+            <div class="text-block-25">Qty</div>
+          </div>
+          <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+            <!-- <div class="text-block-25">{ item.quantity }</div> -->
+            <a href="#" rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | minus 1">-</a>
+            <span rv-text="item.quantity"></span>
+            <a href="#" rv-data-cart-update="index | plus 1" rv-data-cart-quantity="item.quantity | plus 1">+</a>
+          </div>
+        </div>
+        <div class="cart-row w-row">
+          <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+            <div class="text-block-25">Price</div>
+          </div>
+          <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+            <div class="text-block-25">{ item.price | money Currency.currentCurrency }</div>
+          </div>
+        </div>
+        <div class="cart-row w-row">
+          <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+            <a  
+               href="#" 
+               class="remove side-cart" 
+               rv-data-cart-remove="index | plus 1">Remove</a>
+          </div>
+          <div class="column w-col w-col-6 w-col-small-6 w-col-tiny-6"></div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+    <div class="cart-checkout-block">
+      <div class="row w-row">
+        <div class="w-col w-col-6 w-col-small-6">
+          <div class="text-block-26">Subtotal:</div>
+        </div>
+        <div class="w-col w-col-6 w-col-small-6">
+          <div class="subtotal-in-cart-box" data-cart-render="total_price_money">{ cart.total_price | money Currency.currentCurrency }</div>
+        </div>
+      </div>
+      <a href="/cart" class="checkout-button w-button side-cart-button">Basket</a>
+      <a href="/checkout" class="checkout-button w-button side-cart-button">Checkout</a>
+    </div>
+
+</div>

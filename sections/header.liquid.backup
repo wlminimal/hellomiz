@@ -1,0 +1,117 @@
+<div class="mobile-header-section w-hidden-main">
+    <div class="mobile-header">
+      <div data-collapse="medium" data-animation="default" data-duration="400" class="w-nav">
+        <div class="w-container"><a href="#" class="w-nav-brand"></a>
+          <nav role="navigation" class="w-nav-menu"><a href="#" class="w-nav-link">Home</a><a href="#" class="w-nav-link">About</a><a href="#" class="w-nav-link">Contact</a></nav>
+          <div class="w-nav-button">
+            <div class="w-icon-nav-menu"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-section">
+    <div class="promo-banner">
+      <div class="text-block">February Discount Code: 7AGYR5XJ06H0 / 30% Discount after Purchasing $100 or more!</div>
+    </div>
+    <div class="logo-flexbox">
+      <div class="hamburger-menu-wrapper w-hidden-main">
+        <div data-w-id="839b5830-a81b-437c-5fb6-0dd10655280c" class="hamburger-menu">
+          <div data-w-id="839b5830-a81b-437c-5fb6-0dd10655280d" class="top-line w-hidden-main"></div>
+          <div data-w-id="839b5830-a81b-437c-5fb6-0dd10655280e" class="middle-line"></div>
+          <div data-w-id="839b5830-a81b-437c-5fb6-0dd10655280f" class="bottom-line"></div>
+          <div data-w-id="839b5830-a81b-437c-5fb6-0dd106552810" class="close-box">
+            <div class="text-block-27">X</div>
+          </div>
+        </div>
+      </div>
+      <div class="slogan-flexitem">
+        <div class="w-container">
+          <div>For Before, During &amp; After</div>
+        </div>
+      </div>
+      <div class="logo-flexitem"><img src="images/slimed-logo-250px.png" class="image"></div>
+      <div class="cart-menu-flexitem"><a href="#" class="cart-menu-item search w-inline-block"><img src="images/search.png"></a><a href="#" class="cart-menu-item account w-inline-block"><img src="images/user.png"></a><a href="#" data-w-id="839b5830-a81b-437c-5fb6-0dd10655281e" class="cart-menu-item mini-cart w-inline-block"><img src="images/shopping-bag.png"><div class="cart-count">(5)</div></a><a href="#" class="cart-menu-item cart-number w-inline-block"></a></div>
+    </div>
+    <div class="navbar w-hidden-medium w-hidden-small w-hidden-tiny">
+      <div class="nav-link-flex-item" data-ix="megamenu-maternity"><a href="#" class="nav-link">maternity</a></div>
+      <div class="nav-link-flex-item" data-ix="megamenu-nursing"><a href="#" class="nav-link">nursing</a></div>
+      <div class="nav-link-flex-item" data-ix="megamenu-women"><a href="#" class="nav-link">women</a></div>
+      <div class="nav-link-flex-item" data-ix="megamenu-sale"><a href="#" class="nav-link">sale</a></div>
+      <div class="nav-link-flex-item"><a href="#" class="nav-link">blog</a></div>
+    </div>
+    <div class="mega-menu-wrapper w-hidden-medium w-hidden-small w-hidden-tiny">
+      <div class="maternity-mega-menu w-row" data-ix="show-on-hover">
+        <div class="w-col w-col-6">
+          <div class="mega-menu-item-flexbox">
+            <div class="mega-submenu-wrapper">
+              <div class="featured">Featured</div>
+              <div class="mega-menu-divider"></div><a href="#" class="nav-link mega-menu-link">new arrival</a><a href="#" class="nav-link mega-menu-link">1ST TRIMESTER</a><a href="#" class="nav-link mega-menu-link">2ND TRIMESTER</a><a href="#" class="nav-link mega-menu-link">3RD TRIMESTER</a></div>
+            <div class="mega-submenu-wrapper">
+              <div class="featured">clothing</div>
+              <div class="mega-menu-divider"></div><a href="#" class="nav-link mega-menu-link">top</a><a href="#" class="nav-link mega-menu-link">dress</a><a href="#" class="nav-link mega-menu-link">bottom</a><a href="#" class="nav-link mega-menu-link">delivery robes</a><a href="#" class="nav-link mega-menu-link">baby shower</a><a href="#" class="nav-link mega-menu-link">clearance</a></div>
+          </div>
+        </div>
+        <div class="w-col w-col-6">
+          <div class="mega-menu-item-flexbox">
+            <div class="mega-menu-image-wrapper"><img src="images/789.png" height="250" srcset="images/789-p-500.png 500w, images/789.png 840w" sizes="100vw"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mega-menu-wrapper w-hidden-medium w-hidden-small w-hidden-tiny">
+      <div class="nursing-mega-menu w-row" data-ix="show-on-hover">
+        <div class="w-col w-col-6">
+          <div class="mega-menu-item-flexbox">
+            <div class="mega-submenu-wrapper">
+              <div class="featured">Featured</div>
+              <div class="mega-menu-divider"></div><a href="#" class="nav-link mega-menu-link">new arrival</a></div>
+            <div class="mega-submenu-wrapper">
+              <div class="featured">clothing</div>
+              <div class="mega-menu-divider"></div><a href="#" class="nav-link mega-menu-link">nursing top</a><a href="#" class="nav-link mega-menu-link">nursing dress</a><a href="#" class="nav-link mega-menu-link">clearance</a></div>
+          </div>
+        </div>
+        <div class="w-col w-col-6">
+          <div class="mega-menu-item-flexbox">
+            <div class="mega-menu-image-wrapper"><img src="images/HMZ-Banner-085.jpg" height="250" srcset="images/HMZ-Banner-085-p-1080.jpeg 1080w, images/HMZ-Banner-085-p-1600.jpeg 1600w, images/HMZ-Banner-085-p-2000.jpeg 2000w, images/HMZ-Banner-085.jpg 2400w" sizes="100vw"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mega-menu-wrapper w-hidden-medium w-hidden-small w-hidden-tiny">
+      <div class="women-mega-menu w-row" data-ix="show-on-hover">
+        <div class="w-col w-col-6">
+          <div class="mega-menu-item-flexbox">
+            <div class="mega-submenu-wrapper">
+              <div class="featured">Featured</div>
+              <div class="mega-menu-divider"></div><a href="#" class="nav-link mega-menu-link">new arrival</a></div>
+            <div class="mega-submenu-wrapper">
+              <div class="featured">clothing</div>
+              <div class="mega-menu-divider"></div><a href="#" class="nav-link mega-menu-link">top</a><a href="#" class="nav-link mega-menu-link">dress</a><a href="#" class="nav-link mega-menu-link">bottom</a><a href="#" class="nav-link mega-menu-link">clearance</a></div>
+          </div>
+        </div>
+        <div class="w-col w-col-6">
+          <div class="mega-menu-item-flexbox">
+            <div class="mega-menu-image-wrapper"><img src="images/789.png" height="250" srcset="images/789-p-500.png 500w, images/789.png 840w" sizes="100vw"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mega-menu-wrapper w-hidden-medium w-hidden-small w-hidden-tiny">
+      <div class="sale-mega-menu w-row" data-ix="show-on-hover">
+        <div class="w-col w-col-6">
+          <div class="mega-menu-item-flexbox">
+            <div class="mega-submenu-wrapper">
+              <div class="featured">sale</div>
+              <div class="mega-menu-divider"></div><a href="#" class="nav-link mega-menu-link">clearance</a><a href="#" class="nav-link mega-menu-link">maternity</a><a href="#" class="nav-link mega-menu-link">nursing</a><a href="#" class="nav-link mega-menu-link">women</a></div>
+            <div class="mega-menu-image-wrapper"><img src="images/sales_section_banner_image.png" height="250" srcset="images/sales_section_banner_image-p-500.png 500w, images/sales_section_banner_image.png 800w" sizes="100vw"></div>
+          </div>
+        </div>
+        <div class="w-col w-col-6">
+          <div class="mega-menu-item-flexbox">
+            <div class="mega-menu-image-wrapper"><img src="images/DSC_6372.jpg" height="250" srcset="images/DSC_6372-p-1080.jpeg 1080w, images/DSC_6372-p-1600.jpeg 1600w, images/DSC_6372-p-2000.jpeg 2000w, images/DSC_6372-p-2600.jpeg 2600w, images/DSC_6372-p-3200.jpeg 3200w, images/DSC_6372.jpg 3500w" sizes="100vw" class="image-5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,36 @@
+
+{% for option in product.options %}
+{% if option == swatch %}
+<div class="swatch-wrapper">
+  {% assign option_index = forloop.index0 %}
+  <label class="option-label">{{ option }}: </label>
+  {% assign displayed_option_values = '' %}
+  {% for variant in product.variants %}
+    {% assign option_value = variant.options[option_index] %}
+    {% unless displayed_option_values contains option_value %}
+      {% if option == 'Color' or option == 'Colour' %}
+        <a href="{{ variant.url }}" 
+          class="swatch" 
+          style="background-image: url({{ variant.image | img_url: 'small' }}); background-position: center;"
+          data-change-option2="{{ option_index }}" 
+          data-change-value2="{{ option_value }}" 
+          title="{{ option_value }}"
+          data-variant-id="{{ variant.id }}"
+          data-slick-index="{{ option_index }}"></a>
+      {% else %}
+        <a href="{{ variant.url }}"
+          class="size-detail"
+          data-change-option="{{ option_index }}" 
+          data-change-value="{{ option_value }}">{{ option_value }}</a>
+      {% endif %}
+      {% assign displayed_option_values = displayed_option_values | join: ',' %}
+      {% assign displayed_option_values = displayed_option_values | append: ',' | append: option_value %}
+      {% assign displayed_option_values = displayed_option_values | split: ',' %}
+    {% endunless %}
+
+  {% endfor %}
+</div>
+{% endif %}
+{% endfor %}
+
+<!-- style="background-color: {{ option_value | handleize }};" -->

@@ -1,0 +1,75 @@
+<div class="contactus-section">
+    <div class="contactus-flexbox">
+      <div class="contactus-title-block">
+        <h1 class="signup-heading">Contact Us</h1>
+        <div class="signup-textblock">Need help? Complete the form below to contact our customer service team.<br> We will reach you within 24-48 hours.</div>
+      </div>
+      <div class="contactus-form-flexbox">
+        <div class="div-block-42">
+          <div class="w-form">
+          {% form 'contact' %}
+
+            {% if form.posted_successfully? %}
+              <p class="form-success">
+                {{ 'contact.form.post_success' | t }}
+              </p>
+            {% endif %}
+
+
+          {% endform %}
+            <form id="email-form" name="email-form" data-name="Email Form">
+              <input type="text"
+                     class="register-textblock w-input"
+                     maxlength="256" 
+                     name="contact[name]" 
+                     placeholder="Enter your name" 
+                     id="ContactFormName" 
+                     value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                     required="">
+
+              <input type="email"
+                     class="register-textblock w-input" 
+                     maxlength="256" 
+                     name="contact[email]" 
+                     placeholder="Email Address" 
+                     value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                     id="ContactFormEmail" 
+                     required=""
+                     spellcheck="false"
+                     autocomplete="off"
+                     autocapitalize="off">
+              <input type="tel" 
+                     class="register-textblock w-input" 
+                     maxlength="256" 
+                     name="contact[phone]" 
+                     placeholder="Phone Number" 
+                     value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                     id="ContactFormPhone" 
+                     required=""
+                     pattern="[0-9\-]*">
+              <textarea id="ContactFormMessage"
+                        name="contact[body]" 
+                        placeholder="Your Message" 
+                        maxlength="5000"  
+                        required="" 
+                        row="10"
+                        class="textarea w-input">
+                        {% if form.body %}
+                          {{ form.body }}
+                        {% endif %}
+              </textarea>
+              <input type="submit" value="Submit" class="button w-button">
+            </form>
+            
+          </div>
+        </div>
+        <div class="contactus-info-block">
+          <div class="div-block-43"><img src="{{'slimed-logo-250px.png' | asset_img_url: '250x56'}}"></div>
+          <div class="text-block-20">Email Us / <span class="text-span-2">contact@hellomiz.com</span></div>
+          <div class="text-block-20">Call Us / <span class="text-span-2">(213) 275-1351</span></div>
+          <div class="text-block-20">Fax Us / <span class="text-span-2">(213) 275-1350</span></div>
+          <div class="text-block-20">Visit Us / <span class="text-span-3">1001 E. 7th St. Unit D<br xmlns="http://www.w3.org/1999/xhtml">Los Angeles, CA 90021</span></div>
+        </div>
+      </div>
+    </div>
+</div>

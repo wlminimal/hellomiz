@@ -1,0 +1,19 @@
+<!-- Modal -->
+<div id="search-block" class="search-block w-container">
+  <button class="search-close-button" type="button">X</button>
+  <h2 class="search-header">What Styles are you looking for? </h2>
+  <form class="mini-search-form" action="/search" method="get">
+    <label for="Search" class="label-hidden">
+      {{ 'general.search.placeholder' | t }}
+    </label>
+    <input type="search"
+          name="q"
+          id="Search"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'general.search.placeholder' | t }}">
+    <button type="submit" class="mini-search-button">
+      Search
+      <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+    </button>
+  </form>
+</div>

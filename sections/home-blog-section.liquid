@@ -1,0 +1,42 @@
+<div class="blog-section">
+    <div class="blog-title-block w-container">
+      <h2 class="blog-title">{{ section.settings.blog-title }}</h2>
+      <p class="blog-subtitle">{{ section.settings.blog-subtitle }}</p>
+    </div>
+    <div class="blog-flexbox">
+      {% for article in blogs.story.articles limit: 2 %}
+        <div class="blog-tem_flexbox">
+          <a href="{{ article.url }}" class="blog-image w-inline-block">
+            <img src="{{ article.image.src | img_url: '350x280' }}" width="350"
+                 alt="Maternity Clothes Story" srcset="{{ article.image.src | img_url: '700x560' }} 500w, {{ article.image.src | img_url: '700x560' }} 562w" sizes="(max-width: 479px) 100vw, (max-width: 767px) 73vw, (max-width: 991px) 63vw, 562px">
+          </a>
+          <div class="blog-textblock">
+            <div class="blog-date">{{ article.created_at | date: "%b %d, %y" }}</div>
+            <h2 class="blog-header">{{ article.title }}</h2>
+            <p class="blog-text">{{ article.excerpt_or_content | truncatewords: 60 }}</p>
+            <a href="{{ article.url }}" class="blog-link">Read Article &gt;</a></div>
+        </div>
+      {% endfor %}
+    </div>
+    
+</div>
+
+{% schema %}
+{
+  "name": "Blog Section",
+  "settings": [
+    {
+      "id": "blog-title",
+      "type": "text",
+      "label": "Blog Title",
+      "default": "Hello Mama"
+    },
+    {
+      "id": "blog-subtitle",
+      "type": "text",
+      "label": "Blog Subtitle",
+      "default": "A blog for Before, During & After"
+    }
+  ]
+}
+{% endschema %}

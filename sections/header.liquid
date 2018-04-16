@@ -1,0 +1,142 @@
+
+  <div class="header-section">
+    <div class="promo-banner">
+      <div class="text-block">{{ section.settings.promotion-text }}</div>
+    </div>
+    <div class="logo-flexbox">
+      <div class="hamburger-menu-wrapper w-hidden-main">
+        <div data-w-id="839b5830-a81b-437c-5fb6-0dd10655280c" class="hamburger-menu">
+          <div data-w-id="839b5830-a81b-437c-5fb6-0dd10655280d" class="top-line w-hidden-main"></div>
+          <div data-w-id="839b5830-a81b-437c-5fb6-0dd10655280e" class="middle-line"></div>
+          <div data-w-id="839b5830-a81b-437c-5fb6-0dd10655280f" class="bottom-line"></div>
+          <div data-w-id="839b5830-a81b-437c-5fb6-0dd106552810" class="close-box">
+            <div class="text-block-27">X</div>
+          </div>
+        </div>
+      </div>
+      <div class="slogan-flexitem">
+        <div class="w-container">
+          <div>{{ section.settings.side-nav-text }}</div>
+        </div>
+      </div>
+      {% assign image_size = '250x56' %}
+     <div class="logo-flexitem">
+      <a href="/">
+        <img src="{{ section.settings.main-logo | img_url: image_size }}" class="image">
+      </a>
+     </div> 
+      <div class="cart-menu-flexitem">
+        <a href="#" id="search-button" class="cart-menu-item search w-inline-block" 
+           data-toggle="modal" data-target="#searchModal">
+          <img src="{{ 'search-16x16.png' | asset_img_url: '16x' }}" alt="maternity clothes search">
+        </a>
+        <a href="/account" class="cart-menu-item account w-inline-block">
+          <img src="{{ 'user-16x16.png' | asset_img_url: '16x' }}" alt="Account">
+        </a>
+        <a href="#" id="show-side-cart" class="cart-menu-item mini-cart w-inline-block">
+          <img src="{{ 'shopping-bag-16x16.png' | asset_img_url: '16x' }}" alt="Cart">
+          <div class="cart-count item-count" data-cart-render="item_count">{{ cart.item_count }}</div>
+          <div class="cart-count" data-cart-render="total_price_money">{{ cart.total_price | money }}</div>
+        </a>
+       
+      </div>
+    </div>
+
+    {% assign menu = linklists.main-menu%}
+    
+    <div class="navbar w-hidden-medium w-hidden-small w-hidden-tiny">
+      {% for link in menu.links %}
+        <div class="nav-link-flex-item" data-ix="megamenu-{{ link.title | downcase }}">
+          <a href="{{ link.url }}" class="nav-link">{{ link.title }}</a>
+        </div>
+      {% endfor %}  
+      <div class="nav-link-flex-item"><a href="{{ link.url }}" class="nav-link">{{ link.title }}</a></div>
+    </div>
+    
+
+    <!-- Mega Menu -->
+
+    {% for link in menu.links %}
+      
+          <div class="mega-menu-wrapper w-hidden-medium w-hidden-small w-hidden-tiny">
+            <div class="{{ link.title | downcase }}-mega-menu w-row" data-ix="show-on-hover">
+              <div class="w-col w-col-6">
+                <div class="mega-menu-item-flexbox">
+                {% for sub_link in link.links %}
+                  <div class="mega-submenu-wrapper">
+                    
+                    <div class="featured">{{ sub_link.title }}</div>
+                    <div class="mega-menu-divider"></div>
+                      {% for sub_sub_link in sub_link.links %}
+                        <a href="{{ sub_sub_link.url }}" class="nav-link mega-menu-link">{{ sub_sub_link.title }}</a>
+                      {% endfor %}
+                    
+                  </div>
+                {% endfor %}
+                </div>
+              </div>
+              <div class="w-col w-col-6">
+                <div class="mega-menu-item-flexbox">
+                  <div class="mega-menu-image-wrapper">
+                    {% if link.title == "Maternity" %}
+                        <img src="{{ section.settings.maternity-mega-image | img_url: '250x250' }}" height="250" alt="Maternity Dresses">
+                    {% elsif link.title == "Nursing" %}
+                        <img src="{{ section.settings.nursing-mega-image | img_url: '250x250' }}" height="250" alt="Maternity swimwear">
+                    {% elsif link.title == "Women" %}
+                        <img src="{{ section.settings.women-mega-image | img_url: '250x250' }}" height="250" alt="Nursing clothes">
+                    {% elsif link.title == "Sale" %}
+                        <img src="{{ section.settings.sale-mega-image | img_url: '250x250' }}" height="250" alt="maternity pants">
+                    {% endif %}
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Navigation Bar",
+  "settings": [
+    {
+      "id": "side-nav-text",
+      "type": "text",
+      "label": "Side Nav Text",
+      "default": "For Before, During & After"
+    },
+    {
+      "id": "promotion-text",
+      "type": "text",
+      "label": "Promotion Text",
+      "default": "Type here about promotional code!"
+    },
+    {
+      "type": "image_picker",
+      "id": "main-logo",
+      "label": "Main Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "maternity-mega-image",
+      "label": "Maternity Megamenu Image (250x250 Recommended)"
+    },
+    {
+      "type": "image_picker",
+      "id": "nursing-mega-image",
+      "label": "Nursing Megamenu Image (250x250 Recommended)"
+    },
+    {
+      "type": "image_picker",
+      "id": "women-mega-image",
+      "label": "Women Megamenu Image (250x250 Recommended)"
+    },
+    {
+      "type": "image_picker",
+      "id": "sale-mega-image",
+      "label": "Sale Megamenu Image (250x250 Recommended)"
+    }
+  ]
+}
+{% endschema %}

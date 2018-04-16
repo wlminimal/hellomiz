@@ -1,0 +1,75 @@
+<div class="collection-header-section">
+    <div class="collection-header-block">
+      
+      {% include 'breadcrumbs' %}
+
+      {% include 'collection-filter' %}
+    </div>
+</div>
+<div class="collection-list-section">
+    <div class="collection-list-block">
+      <div class="collection-flexitem">
+        <div class="hero-image-wrapper">
+          <img src="{{ section.settings.col-hero-image | img_url: '500x750' }}"
+               width="600" 
+               sizes="(max-width: 479px) 100vw, (max-width: 767px) 44vw, (max-width: 991px) 29vw, 18vw">
+        </div>
+      </div>
+    {% paginate collection.products by 38 %}
+      {% for product in collection.products %}
+        <div class="collection-flexitem">
+          <a href="{{ product.url | within: collection }}" class="hero-image-wrapper w-inline-block">
+            {% if product.featured_image != blank %}
+
+            <img src="{{ product.featured_image.src | img_url: '500x750' }}" 
+                   width="600" 
+                   class="visible-product-image"
+                   alt="{{ product.featured_image.alt }}">
+            {% endif %}
+            {% assign fifth_image = product.images[4].src  %}
+            {% assign second_image = product.images[2].src %}
+            <img class="hidden-product-image" 
+                 src="{% if fifth_image == blank %}{{ second_image | img_url: '500x750'}}{% else %}{{ fifth_image | img_url: '500x750'}} {% endif %}" 
+                 width="600">
+          </a>
+          <div class="product-detail-block">
+            <div class="product-name">{{ product.title }}</div>
+            <div class="price-block">
+              <div class="price">{{ product.price | money }}</div>
+            </div>
+            <div class="color-block">
+              <div class="text-block-15">+ more colors</div>
+            </div>
+            <div class="color-button-block">
+              <div class="color-pallet">
+                <div class="div-block-37"></div>
+                <div class="div-block-38"></div>
+              </div>
+              <div class="shop-button-block">
+                <a href="{{ product.url | within: collection }}" class="shop-now-button small">shop now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+      {% if paginate.pages > 1 %}
+        {% include 'pagination' %}
+      {% endif %}
+    {% endpaginate %}
+      
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Hero Image",
+  "settings": [
+    {
+      "id": "col-hero-image",
+      "type": "image_picker",
+      "label": "Collection Hero Image(500x750)"
+    }
+  ]
+}
+{% endschema %}

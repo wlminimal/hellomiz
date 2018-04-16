@@ -1,0 +1,45 @@
+<div class="blog-list-header-section">
+    <div class="blog-title-block w-container">
+      <h1 class="blog-title">{{ section.settings.blog-list-title }}</h1>
+      <p class="blog-subtitle">{{ section.settings.blog-list-subtitle }}</p>
+    </div>
+</div>
+{% paginate blogs.story.articles by 9 %}
+<div class="blog-list-section">
+    <div class="blog-list-flex w-container">
+      {% for article in blogs.story.articles %}
+      <a href="{{ article.url }}" class="blog-flexitem w-inline-block">
+        <div>
+          <img src="{{ article.image.src | img_url: 'medium' }}" width="300" 
+          srcset="{{ article.image.src | img_url: 'medium' }} 1080w, {{ article.image.src | img_url: 'medium' }} 1600w, {{ article.image.src | img_url: 'medium' }} 2000w, {{ article.image.src | img_url: 'medium' }} 2400w" sizes="(max-width: 479px) 96vw, 300px">
+        </div>
+        <div class="blog-list-title-block">
+          <p class="blog-list-title">{{ article.title }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+</div>
+{% if paginate.pages > 1 %}
+  {% include 'pagination' %}
+{% endif %}
+{% endpaginate %}
+{% schema %}
+{
+  "name": "Blog Section",
+  "settings": [
+    {
+      "id": "blog-list-title",
+      "type": "text",
+      "label": "Blog List Page Title",
+      "default": "Hello Mama"
+    },
+    {
+      "id": "blog-list-subtitle",
+      "type": "text",
+      "label": "Blog List Page Subtitle",
+      "default": "A blog for Before, During & After"
+    }
+  ]
+}
+{% endschema %}

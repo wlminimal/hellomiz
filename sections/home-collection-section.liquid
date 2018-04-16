@@ -1,0 +1,157 @@
+<div class="collection-section">
+    <div class="div-block-4">
+      <div data-w-id="5b9bfb62-ac0c-af8e-069f-2adb9f7371ca" class="collection-flexbox1">
+        <div class="div-block-6">
+          <h2 class="heading-2"><span class="text-span">{{ section.settings.first-collection-title-first-letter }}</span>{{ section.settings.first-collection-title }}</h2>
+          <a href="{{ section.settings.first-collection-link }}" class="shop-now-button">shop now</a>
+        </div>
+        <a href="{{ section.settings.first-collection-link }}" class="w-inline-block">
+          <img src="{{ section.settings.first-collection-image | img_url: '500x334' }}" 
+             class="image-2" alt="nursing clothes">
+        </a>
+        <div data-w-id="ae2b7511-da3e-76ed-c399-34ceb8197b7b" class="card-highlight"></div>
+      </div>
+      
+      <div data-w-id="053d224a-d40e-0972-b234-8b6309fef962" class="collection-flexbox2">
+        <div data-w-id="58aa9f33-d0c1-49cd-85c6-1fc0518bfa03" class="nursing-highlight"></div>
+        <a href="{{ section.settings.second-collection-link }}" class="link-block-2 w-inline-block">
+          <img src="{{ section.settings.second-collection-image | img_url: '400x480' }}" 
+               alt="Maternity clothing clothes dresses" class="image-12">
+        </a>
+        <div>
+          <div class="div-block-6 left-align">
+            <h2 class="heading-2"><span class="text-span">{{ section.settings.second-collection-title-first-letter }}</span>{{ section.settings.second-collection-title }}</h2>
+            <a href="{{ section.settings.second-collection-link }}" class="shop-now-button">shop now</a></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="div-block-7">
+      <div data-w-id="9bec723c-95c9-005f-3a45-459e45aca554" class="collection-flexbox3">
+      <a href="{{ section.settings.third-collection-link }}" class="w-inline-block">
+        <img src="{{ section.settings.third-collection-image | img_url: '626x626' }}" 
+             alt="Maternity clothing clothes dresses" class="image-13">
+      </a>
+        <div class="div-block-6 collection3">
+          <h2 class="heading-2"><span class="text-span">{{ section.settings.third-collection-title-first-letter }}</span>{{ section.settings.third-collection-title }}</h2>
+          <a href="{{ section.settings.third-collection-link }}" class="shop-now-button">shop now</a>
+        </div>
+        <div data-w-id="75d9c61e-b881-1cc2-fad7-33df18247311" class="women-highlight"></div>
+      </div>
+      
+      <div data-w-id="7e6da375-adfa-f010-a93d-d3cca63a5d70" class="collection-flexbox4">
+        <div class="div-block-6 collection4">
+          <h2 class="heading-2"><span class="text-span">{{ section.settings.fourth-collection-title-first-letter }}</span>{{ section.settings.fourth-collection-title }}</h2>
+          <a href="{{ section.settings.fourth-collection-link }}" class="shop-now-button">shop now</a>
+        </div>
+          <a href="{{ section.settings.fourth-collection-link }}" class="w-inline-block">
+            <img src="{{ section.settings.fourth-collection-image | img_url: '840x553' }}" 
+                alt="Maternity clothing clothes dresses" class="image-14">
+          </a>
+        <div data-w-id="1f5c1b10-4e3c-0850-c7b4-8bb6fb3b78a8" class="sale-highlight"></div>
+      </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Section",
+  "settings": [
+    {
+      "id": "first-collection-title-first-letter",
+      "type": "text",
+      "label": "First one Letter",
+      "default": "M"
+    },
+    {
+      "id": "first-collection-title",
+      "type": "text",
+      "label": "1st Collection Name",
+      "default": "aternity"
+    },
+    {
+      "id": "first-collection-link",
+      "type": "text",
+      "label": "1st Collection Link(/collections/(collection_name)",
+      "default": "/collections/maternity"
+    },
+    {
+      "id": "first-collection-image",
+      "type": "image_picker",
+      "label": "First Collection Image (1000x668 Recommended)"
+    },
+
+    {
+      "id": "second-collection-title-first-letter",
+      "type": "text",
+      "label": "First one Letter",
+      "default": "N"
+    },
+    {
+      "id": "second-collection-title",
+      "type": "text",
+      "label": "2nd Collection Name",
+      "default": "ursing"
+    },
+    {
+      "id": "second-collection-link",
+      "type": "text",
+      "label": "2nd Collection Link(/collections/(collection_name)",
+      "default": "/collections/nursing"
+    },
+    {
+      "id": "second-collection-image",
+      "type": "image_picker",
+      "label": "Second Collection Image (800x960 Recommended)"
+    },
+
+    {
+      "id": "third-collection-title-first-letter",
+      "type": "text",
+      "label": "First one Letter",
+      "default": "W"
+    },
+    {
+      "id": "third-collection-title",
+      "type": "text",
+      "label": "3rd Collection Name",
+      "default": "omen"
+    },
+    {
+      "id": "third-collection-link",
+      "type": "text",
+      "label": "3rd Collection Link(/collections/(collection_name)",
+      "default": "/collections/women"
+    },
+    {
+      "id": "third-collection-image",
+      "type": "image_picker",
+      "label": "third Collection Image (626x626 Recommended)"
+    },
+
+    {
+      "id": "fourth-collection-title-first-letter",
+      "type": "text",
+      "label": "First one Letter",
+      "default": "S"
+    },
+    {
+      "id": "fourth-collection-title",
+      "type": "text",
+      "label": "4th Collection Name",
+      "default": "ale"
+    },
+    {
+      "id": "fourth-collection-link",
+      "type": "text",
+      "label": "4th Collection Link(/collections/(collection_name)",
+      "default": "/collections/sale"
+    },
+    {
+      "id": "fourth-collection-image",
+      "type": "image_picker",
+      "label": "Fourth Collection Image (840x553 Recommended)"
+    }
+  ]
+}
+{% endschema %}

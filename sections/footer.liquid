@@ -1,0 +1,150 @@
+<div class="footer-section">
+    <div class="div-block-22">
+      <div class="footer-1-flexbox">
+        <div class="div-block-25">
+          <div class="text-block-9">{{ section.settings.loyalty-section-line-1 }}</div>
+          <p class="paragraph">{{ section.settings.loyalty-section-paragragh }}</p>
+          <a href="#" class="w-inline-block">
+            <img src="{{ section.settings.loyalty-icon | img_url: '34x34' }}"></a>
+          </div>
+        <div class="div-block-24">
+          <div class="text-block-9">{{ section.settings.sns-title }}</div>
+          <div class="div-block-27">
+            <a href="{{ section.settings.facebook-link }}" class="fb-link w-inline-block">
+              <img src="{{ section.settings.facebook-icon | img_url: '34x34' }}" class="image-3">
+            </a>
+            <a href="{{ section.settings.insta-link }}" class="insta-link w-inline-block">
+              <img src="{{ section.settings.insta-icon | img_url: '34x34' }}" class="image-3">
+            </a>
+            <a href="{{ section.settings.pinterest-link }}" class="pinterest-link w-inline-block">
+              <img src="{{ section.settings.pinterest-icon | img_url: '34x34' }}" class="image-3">
+            </a>
+            <a href="{{ section.settings.blog-link }}" class="blog-link w-inline-block">
+              <img src="{{ section.settings.blog-icon | img_url: '34x34' }}" class="image-3">
+            </a>
+          </div>
+        </div>
+        <div class="div-block-23">
+          <div class="text-block-9">{{ section.settings.company-name }}</div>
+          <div class="text-block-10">{{ section.settings.address-line-1 }}<br>{{ section.settings.address-line-2 }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="subscribe-flexbox w-container">
+      <div class="div-block-28">
+        <div class="text-block-11">{{ section.settings.subscribe-text }}</div>
+      </div>
+      <div class="div-block-29"><a href="#" class="subscribe-button w-button">Subscribe to Hello Miz</a></div>
+    </div>
+    <div class="footer-divider"></div>
+
+    {% assign footer_menu = linklists.footer %}
+    <div class="footer-menu-wrapper">
+      <div class="footer-menu-flexbox">
+      {% for f_link in footer_menu.links %}
+        <div class="div-block-30">
+          <div class="text-block-12">{{ f_link.title }}</div>
+          {% for sub_link in f_link.links %}
+            <a href="{{ sub_link.url }}" class="footer-menu-link">{{ sub_link.title}}</a>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer Section",
+  "settings": [
+    {
+      "id": "loyalty-section-line-1",
+      "type": "text",
+      "label": "Loyalty Line 1",
+      "default": "Share the Love"
+    },
+    {
+      "id": "loyalty-section-paragragh",
+      "type": "text",
+      "label": "Loyalty Description",
+      "default": "Describe your loyalty program"
+    },
+    {
+      "id": "loyalty-icon",
+      "type": "image_picker",
+      "label": "Loyalty Icon (32x32 Recommended)"
+    },
+    {
+      "id": "sns-title",
+      "type": "text",
+      "label": "Sns Title",
+      "default": "Stay Connected"
+    },
+    {
+      "id": "facebook-icon",
+      "type": "image_picker",
+      "label": "Facebook Icon (32x32 Recommended)"
+    },{
+      "id": "facebook-link",
+      "type": "text",
+      "label": "Facebook URL"
+    },
+    {
+      "id": "insta-icon",
+      "type": "image_picker",
+      "label": "Instagram Icon (32x32 Recommended)"
+    },
+    {
+      "id": "insta-link",
+      "type": "text",
+      "label": "Instagram URL"
+    },
+    {
+      "id": "pinterest-icon",
+      "type": "image_picker",
+      "label": "Pinterest Icon (32x32 Recommended)"
+    },
+    {
+      "id": "pinterest-link",
+      "type": "text",
+      "label": "Pinterest URL"
+    },
+    {
+      "id": "blog-icon",
+      "type": "image_picker",
+      "label": "Blog Icon (32x32 Recommended)"
+    },
+    {
+      "id": "blog-link",
+      "type": "text",
+      "label": "Blog URL",
+      "default": "blogs/story"
+    },
+    {
+      "id": "company-name",
+      "type": "text",
+      "label": "Company Name",
+      "default": "Hello Miz USA"
+    },
+    {
+      "id": "address-line-1",
+      "type": "text",
+      "label": "Address Line 1",
+      "default": "1001 E. 7th St. Unit D"
+    },
+    {
+      "id": "address-line-2",
+      "type": "text",
+      "label": "Address Line 2",
+      "default": "Los Angeles, CA 90021"
+    },
+    {
+      "id": "subscribe-text",
+      "type": "text",
+      "label": "Subcribe Text",
+      "default": "Describe for subscription benefit."
+    }
+  ]
+}
+{% endschema %}

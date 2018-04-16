@@ -1,0 +1,74 @@
+  <div class="signup-section">
+    <div class="form-block-wrapper">
+      <h1 class="heading-5">login</h1>
+      <div class="form-divider"></div>
+      <a href="/account/register" class="text-block-31">Don&#x27;t have an account? Click here to create an account.</a>
+      <div class="form-block-3 w-form">
+      {% form 'customer_login' %}
+      {{ form.errors | default_errors }}
+      <div class="form-flexbox">
+        <div class="div-block-57">
+          <label class="field-label" for="CustomerEmail">Email Address:</label>
+        </div>
+        <div class="div-block-58">
+          <input type="email" 
+                 class="w-input {% if form.errors contains 'email' %}input-error{% endif %}" 
+                 maxlength="256" 
+                 name="customer[email]" 
+                 id="CustomerEmail" 
+                 required="">
+        </div>
+      </div>
+        {% if form.password_needed %}
+          <div class="form-flexbox">
+            <div class="div-block-57">
+              <label class="field-label" for="CustomerPassword">Password:</label>
+            </div>
+            <div class="div-block-58">
+              <input type="password" 
+                     class="w-input {% if form.errors contains 'password' %}input-error{% endif %}" 
+                     maxlength="256" 
+                     name="customer[password]" 
+                     id="CustomerPassword" 
+                     required="">
+            </div>
+          </div>
+        {% endif %}
+        <div class="form-button-wrapper">
+          <input type="submit" class="form-submit-button w-button" value="Login">
+        </div>
+      {% endform %}
+      </div>
+
+      <div class="form-divider"></div>
+
+      <h1 class="heading-5">forget your password?</h1>
+      <div class="text-block-32">We will send you a password reset link to your email.</div>
+      <div class="form-block-3 w-form">
+      {% form 'recover_customer_password' %}
+        {{ form.errors | default_errors }}
+        {% if form.posted_successfully? %}
+          <span class="hide reset-password-success"></span>
+        {% endif %}
+        <div class="form-flexbox">
+            <div class="div-block-57">
+              <label class="field-label" for="RecoverEmail">Email Address:</label>
+            </div>
+            <div class="div-block-58">
+              <input type="email" 
+                     class="w-input" 
+                     maxlength="256" 
+                     name="email" 
+                     id="RecoverEmail" 
+                     required=""
+                     autocomplete="off"
+                     autocapitalize="off">
+            </div>
+          </div>
+          <div class="form-button-wrapper">
+            <input type="submit" class="form-submit-button w-button" value="Request a new password">
+          </div>
+      {% endform %}
+      </div>
+    </div>
+  </div>

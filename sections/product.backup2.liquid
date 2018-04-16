@@ -1,0 +1,232 @@
+<div class="product-detail-section">
+    <div class="product-detail-block">
+     <script type="application/json" id="product-id-images_{{ product.id }}" class="images-data" data-product_id={{product.id}}>
+        
+        {% for product_option in product.options_with_values %}
+            {% if product_option.name == 'Color' %}
+             {
+              {% for value in product_option.values %}
+                {{ value }}
+                {% for variant in product.variants %}
+                  {% if variant.title contains value %}
+                    {{ variant.image  }}
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
+             }
+            {% endif %}
+          {% endfor %}
+      </script>
+      <div class="breadcrumb-block left-breadcrumb">
+        <a href="#" class="breadcrumb-text">home &gt; new arrivals</a>
+      </div>
+      {%- assign current_variant = product.selected_or_first_available_variant -%}
+      {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+      <meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+      <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+      <meta itemprop="brand" content="{{ product.vendor }}">
+      <meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
+      <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+      
+      <div class="product-desc-block columns is-mobile">
+
+        <!-- Product Pictures Column -->
+
+        <div class="column is-half">
+          <div class="product-pictures columns">
+            {% if product.images.size > 1 %}
+            <div class="nav-wrapper column">
+              <ul class="slider-nav">
+                
+                  {% for image in product.images %}
+                  <li>
+                    <img src="{{ image.src | img_url: '120x' }}"
+                        data-product-single-thumbnail
+                        class="image-8"
+                        alt="{{ image.alt | escape }}"
+                        data-change-variant="{{ image.variants.first.id }}">
+                  </li> 
+                  {% endfor %}
+
+              </ul>
+            </div>
+            
+            <div class="main-img-wrapper column is-four-fifths-desktop">
+              <div class="slider-for">
+
+                {% for image in product.images %}
+                  <figure class="image is-2by3 ">
+                    <img  id="featured-image"
+                          src="{{ image.src | img_url: 'master'}}" 
+                          width="470"
+                          data-zoom="{{ image.src | img_url: '1024x1024', scale: 2 }}"
+                          class="product-image-main image-zoom"
+                          alt="{{ image.alt | escape }}" data-product-featured-image>
+                  </figure>
+                {% endfor %}
+
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Product Description Column -->
+
+        <div class="column is-half">
+          <div class="product-desc-flexbox">
+          <div class="product-title-flexbox">
+            <h1 class="product-title">{{ product.title}}</h1>
+            <div id="product-price" class="price large-price">{{ product.price_min | money }} to {{ product.price_max | money }}</div>
+
+            {% if product.compare_at_price_max > product.price %}
+              <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+              <s data-compare-price>
+                {% if current_variant.compare_at_price > current_variant.price %}
+                  <div class="price large-price old-price" >{{ current_variant.compare_at_price | money }}</div>
+                {% endif %}
+              </s>
+            {% endif %}
+          </div>
+          <div class="form-block w-form">
+            <form id="product-form" action="/cart/add" method="post" data-cart-submit>
+              <!-- Price -->
+             
+             <!-- <h3 id="product-price">{{ product.price_min | money }} to {{ product.price_max | money }}</h3>
+
+               
+              <label for="product-select">Choose your {{ product.title }}</label>
+            -->
+              <!-- No Js -->
+               
+              <select id="product-select" name="id">
+                {% for variant in product.variants %}
+                <option value="{{ variant.id }}"{% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %}>{{ variant.title }} - {{ variant.price | money }}</option>
+                {% endfor %}
+              </select>
+              
+              <!-- end no js -->
+
+              <!-- Variant swatches. -->
+              
+              {% for option in product.options %}
+                {% include 'swatch' with option %}
+              {% endfor %}
+              
+              <div class="qty-block">
+                <label for="Quantity" class="option-label">{{ 'products.product.quantity' | t }}: </label>
+                  <select id="Quantity" name="field" class="size-select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="8">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                  </select>
+              </div>
+
+
+              <!-- Add to cart button. -->
+              <div class="add-to-basket-block">
+                <input type="submit" 
+                       id="add-to-cart" 
+                       class="add-to-cart-button" 
+                       name="add" 
+                       value="Add to Basket" />
+              </div>
+
+            </form>
+
+          </div>
+
+          <div class="additional-info-block">
+            <div data-duration-in="300" data-duration-out="100" class=" w-tabs">
+              <div class="tabs-menu w-tab-menu">
+                <a data-w-tab="Tab 1" class="product-detail-tab-link w-inline-block w-tab-link w--current">
+                  <div>Details</div>
+                </a>
+                <a data-w-tab="Tab 2" class="product-detail-tab-link w-inline-block w-tab-link">
+                  <div>Size Chart</div>
+                </a>
+                <a data-w-tab="Tab 3" class="product-detail-tab-link w-inline-block w-tab-link">
+                  <div>Shipping &amp; Returns</div>
+                </a>
+              </div>
+              <div class="w-tab-content">
+                <div data-w-tab="Tab 1" class="tab-pane w-tab-pane w--tab-active">
+                  <div class="product-detail-contents w-richtext">
+                    {{ product.description }}
+                  </div>
+                </div>
+                <div data-w-tab="Tab 2" class="w-tab-pane">
+                  <div class="product-detail-contents">
+                  <img src="{{ section.settings.size-chart | img_url: '300x' }}" width="300"></div>
+                </div>
+                <div data-w-tab="Tab 3" class="w-tab-pane">
+                  <div class="product-detail-contents">
+                    <div class="rich-text-block w-richtext">
+                      <p><strong>Shipping policy</strong></p>
+                      <p>{{ section.settings.shipping_policy }} </p>
+                      <p><strong>Return Policy</strong></p>
+                      <p>{{ section.settings.return_policy }} </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="related-product-mobile w-container">
+  <div class="related-product-flex-parent">
+    <div class="related-product-title">
+      <div class="text-block-19">You may also like..</div>
+    </div>
+    <div class="div-block-41"></div>
+    <div class="related-product-flexbox">
+      <div class="related-product-wrapper">
+        <img src="{{'CMD1248Q-WHT_3.jpg' | asset_img_url: '175x260'}}" >
+      </div>
+      <div class="related-product-wrapper">
+        <img src="{{'1746B-CMT-2.jpg' | asset_img_url: '175x260' }}">
+      </div>
+      <div class="related-product-wrapper">
+        <img src="{{'1735-CMT-TEST-2.jpg' | asset_img_url: '175x260'}}">
+      </div>
+    </div>
+  </div>
+</div>
+
+              
+{% schema %}
+{
+  "name": "Product Detail Section",
+  "settings":[
+    {
+      "id": "size-chart",
+      "type": "image_picker",
+      "label": "Size Chart"
+    },
+    {
+      "id": "shipping_policy",
+      "type": "text",
+      "label": "Shipping Policy",
+      "default": "Shipping Policy"
+    },
+    {
+      "id": "return_policy",
+      "type": "text",
+      "label": "Return Policy",
+      "default": "Return Policy"
+    }
+  ]
+}
+{% endschema %}
+               

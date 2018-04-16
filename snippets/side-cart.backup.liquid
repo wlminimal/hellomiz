@@ -1,0 +1,74 @@
+<div id="side-cart" class="cart-block" data-cart-view>
+    <div class="close-block">
+      <a  href="#" class="close-button">X</a>
+    </div>
+    {% for item in cart.items %}
+    <div id="cart-flexbox-{{ item.variant_id }}" class="cart-item-flexbox">
+      <div class="cart-img-block">
+      {% if item.image != blank %}
+        <a href="{{ item.url | within: collections.all }}">
+          {{ item | img_url: '240x240' | img_tag: item.title }}
+        </a>
+      {% endif %}
+      </div>
+      <div class="cart-product-detail-flexbox" data-label="{{ 'customer.order.product' }}">
+        <div class="w-row">
+          <div class="w-col w-col-11 w-col-small-small-stack">
+            <div class="cart-product-title">
+              <a href="{{ item.url }}" class="cart-link">{{ item.product.title}}</a>
+            </div>
+          </div>
+          <div class="w-col w-col-1 w-col-small-small-stack"></div>
+        </div>
+        <div class="cart-row w-row">
+          <div class="w-col w-col-6 w-col-medium-6 w-col-small-6 w-col-tiny-6">
+          {% unless item.product.has_only_default_variant %}
+            <div class="text-block-25">{{ item.variant.title}}</div>
+          {% endunless %}
+          </div>
+          <div class="w-col w-col-6 w-col-medium-6 w-col-small-6 w-col-tiny-6">
+            <div class="text-block-25"></div>
+          </div>
+        </div>
+       
+        <div class="cart-row w-row">
+          <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+            <div class="text-block-25">Qty</div>
+          </div>
+          <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+            <div class="text-block-25">{{ item.quantity }}</div>
+          </div>
+        </div>
+        <div class="cart-row w-row">
+          <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+            <div class="text-block-25">Price</div>
+          </div>
+          <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+            <div class="text-block-25">{{ item.price | money }}</div>
+          </div>
+        </div>
+        <div class="cart-row w-row">
+          <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+            <a id="remove-button" href="#" class="remove" data-cart-remove="{{ item.variant_id }}">Remove</a>
+          </div>
+          <div class="column w-col w-col-6 w-col-small-6 w-col-tiny-6"></div>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+    
+    <div class="cart-checkout-block">
+      <div class="row w-row">
+        <div class="w-col w-col-6 w-col-small-6">
+          <div class="text-block-26">Subtotal:</div>
+        </div>
+        <div class="w-col w-col-6 w-col-small-6">
+          <div class="subtotal-in-cart-box" data-cart-render="total_price_money">{{ cart.total_price | money }}</div>
+        </div>
+      </div>
+      <a href="/cart" class="checkout-button w-button side-cart-button">Basket</a>
+      <a href="/checkout" class="checkout-button w-button side-cart-button">Checkout</a>
+    </div>
+
+</div>

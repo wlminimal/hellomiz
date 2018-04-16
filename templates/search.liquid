@@ -1,0 +1,86 @@
+<div class="search-page-section">
+  <div class="w-container">
+    {% paginate search.results by 36 %}
+
+      <h1 class="search-header">
+        {% if search.performed %}
+          {% if search.results_count == 0 %}
+            {{ 'general.search.no_results_html' | t: terms: search.terms }}
+          {% else %}
+            {{ 'general.search.results_for_html' | t: terms: search.terms }}
+          {% endif %}
+        {% else %}
+          {{ 'general.search.title' | t }}
+        {% endif %}
+      </h1>
+
+      <form class="search-form" action="/search" method="get" role="search">
+        <label for="Search" class="label-hidden">
+          {{ 'general.search.placeholder' | t }}
+        </label>
+        <input type="search"
+              name="q"
+              id="Search"
+              value="{{ search.terms | escape }}"
+              placeholder="{{ 'general.search.placeholder' | t }}">
+        <button type="submit" class="search-button">
+          Search
+          <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+        </button>
+      </form>
+
+
+    {% if search.performed %}
+      <div class="collection-list-section">
+        <div class="search-list-block">
+          {% for item in search.results %}
+            
+              {% if item.object_type == 'product' %}
+                <div class="collection-flexitem">
+                  <a href="{{ item.url | within: collection }}" class="hero-image-wrapper w-inline-block">
+                    {% if item.featured_image != blank %}
+
+                    <img src="{{ item.featured_image.src | img_url: '500x750' }}" 
+                          width="600" 
+                          class="visible-product-image"
+                          alt="{{ item.featured_image.alt }}">
+                    {% endif %}
+                    {% assign fifth_image = item.images[4].src  %}
+                    {% assign second_image = item.images[2].src %}
+                    <img class="hidden-product-image" 
+                        src="{% if fifth_image == blank %}{{ second_image | img_url: '500x750'}}{% else %}{{ fifth_image | img_url: '500x750'}} {% endif %}" 
+                        width="600">
+                  </a>
+                  <div class="product-detail-block">
+                    <div class="product-name">{{ item.title }}</div>
+                    <div class="price-block">
+                      <div class="price">{{ item.price | money }}</div>
+                    </div>
+                    <div class="color-block">
+                      <div class="text-block-15">+ more colors</div>
+                    </div>
+                    <div class="color-button-block">
+                      <div class="color-pallet">
+                        <div class="div-block-37"></div>
+                        <div class="div-block-38"></div>
+                      </div>
+                      <div class="shop-button-block">
+                        <a href="{{ item.url | within: collection }}" class="shop-now-button small">shop now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% else %}
+                <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
+              {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+        {% if paginate.pages > 1 %}
+          {% include 'pagination' %}
+        {% endif %}
+      {% endif %}
+
+    {% endpaginate %}
+  </div>
+</div>
